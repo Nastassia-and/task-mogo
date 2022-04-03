@@ -2,7 +2,7 @@
   "name": "task-mogo",
   "version": "1.0.0",
   "description": "homework",
-  "source": "./src/index.html",
+  "source": "./index.html",
   "scripts": {
     "test": "test",
     "start": "parcel",
@@ -22,5 +22,8 @@
     "@parcel/transformer-sass": "^2.4.1",
     "parcel": "^2.4.1",
     "sass": "^1.49.11"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3"
   }
 }
