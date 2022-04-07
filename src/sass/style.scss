@@ -41,27 +41,60 @@ $white-dark: #F5F5F5;
     left: 50%; 
     transform: translateX(-50%);
 }
-/*не видит его*/
+@mixin size($size: false, $height: false) {
+    @if $size { font-size: $size; 
+    }         
+    @if $height { line-height: $height; 
+    }     
+}
+@mixin desktop {
+    @media screen and (max-width: 1200px) {
+         @content;
+    }
+}
+@mixin laptop {
+    @media screen and (max-width: 992px) {
+        @content;
+    }
+}
 .wrapper-content {
     max-width: 1170px;
     margin: auto;
+    @include desktop(){
+        max-width: 998px;
+    }
+    @media screen and (max-width: 1015px) {
+        margin: 0 15px;
+    }    
 }        
 .subtitle {
     @include font($kaushan-font,30px ,$black , 400,44px );
     display: block;
     text-align: center;
     margin-bottom: 50px;
+    @include laptop(){
+        @include size(24px, 35px);
+        margin-bottom: 30px;
+    }
+    
 }   
 .title {
     @include font-raleway(36px,$black ,900 ,42px );
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 50px;
+    @include laptop() {
+        @include size(24px,28px );
+        margin-bottom: 30px;
+    }
 }
 .line{
     width: 170px;
     border-bottom: 4px solid #F38281;
     margin: auto;
+    @include laptop(){
+        width: 148px;
+    }
 }
 .wrapper-bg {
     max-height: 1024px;
@@ -75,6 +108,14 @@ $white-dark: #F5F5F5;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    @include laptop(){
+       @include size(13px, 17px)
+    }
+    &__logo-img {
+        @include laptop(){
+        width: 66px;
+        height: 18px;}
+    }
     &__list{
         display: flex;
         flex-direction: row;
@@ -101,6 +142,9 @@ $white-dark: #F5F5F5;
         @include font($kaushan-font,64px,#FFFFFF,400,93px);
         display: block;
         text-align: center;
+        @include laptop(){
+            @include size(48px,70px )
+        }
     }
     &__title-wrapper{
         max-width: 900px;
@@ -111,11 +155,17 @@ $white-dark: #F5F5F5;
         text-transform: uppercase;
         text-align: center;
         margin-bottom: 50px;
+        @include laptop(){
+            @include size(96px, 117px);
+        }
     }
     .line{
         width: 170px;
         border-bottom: 4px solid #FFFFFF;
         margin: 0 auto 75px ;
+        @include laptop(){
+            width: 115px;
+        }
     }
     &__button{
         width: 369px;
@@ -134,12 +184,17 @@ $white-dark: #F5F5F5;
             border: 4px solid #E4BE8D;
             color: #E4BE8D;
         }
+        @include laptop(){
+            width: 317px;
+            height: 52px;
+            @include size(18px, 21px)
+        }
     }
     .intro-work-about{/*потом удалить, для контента*/
         margin:268px auto 0;
     }
 }
-.focus__rectangle{ /*TODO! вынести в миксин*/
+.focus__rectangle{ 
     display: flex;   
     position: absolute;
     top: 0;
@@ -150,15 +205,30 @@ $white-dark: #F5F5F5;
         opacity: 90%;     
         transform: translate3d(-10px,-10px,0);
     }
+    @include desktop(){
+        width: 317px;
+    }
+    @include laptop(){
+        width:288px ;          
+        &:hover {
+            transform: none;
+            opacity: none;
+        }
+
+    }
 }
 .about{
     .line{
         margin-bottom: 40px;
+        @include laptop(){
+            margin-bottom: 30px;
+        }
     }
     &__text{
         @include font-raleway(18px,#000000 ,400 ,21px );
         text-align: center;
         margin-bottom: 65px;
+        @include size(14px, 16px);
     }
     &__img-container{
         position: relative;
@@ -166,34 +236,87 @@ $white-dark: #F5F5F5;
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 106px;
+        @include laptop(){
+            margin-bottom: 60px;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+    &__img {
+        @include desktop(){
+            width: 320px;
+            height: 282px;
+        }
+        @include laptop() {
+            width: 288px;
+            height: 258px;
+            margin-bottom: 15px;
+        }
+    }
+    &__img-wrapper {
+        @include laptop(){
+            height: 258px;  
+            margin-bottom: 15px;
+        }
     }
     &__square-green{
         width: 370px;
         height: 338px;
         background-color: $green;
+        @include desktop(){
+            width: 320px;
+            height: 282px;
+        }
+        @include laptop() {
+            width: 288px;
+            height: 258px;
+        }
     }
     .focus__rectangle{
         flex-direction: column;
         align-items: center;
         justify-content: center;
         height: 338px;
+        @include desktop(){
+        height: 282px;
+        }
+        @include laptop(){           
+            opacity: 90%;
+            height: 83px;            
+            flex-direction: row;
+            justify-content:left;
+            position: relative;
+            top: -97px;
+        }
         .icon-add-user{
             width: 40px;
             margin-bottom: 30px;
+            @include laptop(){
+                width: 33px;
+                height: 33px;
+                margin: 0 45px 0 17px;
+            }
         }
         .text{
             @include font-raleway(24px,#FFFFFF ,500 ,28px );
             text-transform: uppercase;
+            @include laptop(){
+                @include size(18px, 21px);
+            }
         }
     }    
 }   
 .green-container{
     display: grid;
     grid-column-gap:1px;
-    grid-template-columns: 1fr 234px 234px 234px 234px 234px 1fr;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr 1fr;
     margin-bottom: 50px;
+    @include laptop(){
+        margin-bottom: 30px;
+    }
 }
 .green-rectangle{
+    padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -202,15 +325,26 @@ $white-dark: #F5F5F5;
     background-color: $green;
     &__text{
         @include font-raleway(24px,#FFFFFF ,700 ,28px );
+        text-align: center;
+        @include laptop(){
+            @include size(18px, 21px);
+        }
     }
     &__number{
         @include font-raleway(64px,#FFFFFF ,700 ,75px );
         margin-bottom: 15px;
+        @include laptop(){
+            @include size(48px, 56px);
+        }
+    }
+    @include laptop(){
+        height: 166px;        
     }
 }
 .work {
     &__line{
         margin-bottom: 90px;
+       
     }
     &__container{
         display: grid;
@@ -218,6 +352,11 @@ $white-dark: #F5F5F5;
         grid-column-gap: 60px;
         grid-row-gap: 150px;
         margin-bottom: 133px;
+        @include laptop(){
+            grid-column-gap: 40px;
+            grid-row-gap: 55px;
+            margin-bottom: 58px;
+        }
     }
     &__block{
         display: flex;
@@ -230,39 +369,68 @@ $white-dark: #F5F5F5;
     &__icon-title{
         @include font-raleway(24px,$black ,700 ,28px );
         text-transform: uppercase;
-        margin-bottom: 60px
+        margin-bottom: 60px;
+        @include laptop(){
+            @include size(18px, 21px);
+            margin-bottom: 45px;
+        }
     }
     &__icon-text{
         @include font-raleway(18px,$black ,400 ,21px );
+        @include laptop() {
+            @include size(14px, 16px);
+        }
     }
     &__icon{
-       width: 70px;
-       height: 70px;
+       width: 50px;
+       height: 50px;
+       @include laptop() {
+           width: 42px;
+           height: 42px;
+       }
     }
 }
+
 .design{
     background: linear-gradient(rgba(255, 255, 255, 0.8),rgba(255, 255, 255, 0.8)), url(../../img/bg-design.jpg) center no-repeat;
     background-size: 100% 100%;
+
     &__line{
         margin-bottom: 59px;
+        @include laptop(){
+            margin-bottom: 40px;
+        }
     }
+
     &__images{
         margin: auto;
-        width: 1170px;
+        max-width: 1170px;
         height: 582px;
         position: relative;      
-        margin-bottom: 55px;  
+        margin-bottom: 55px; 
+        @include laptop(){
+            margin-bottom: 38px;
+        }
+        @include desktop(){
+            max-width: 793px;
+        } 
+
         &-rectangle{
-            position: absolute;
-            left: 50%; 
-            transform: translateX(-50%);
-            z-index: 2;            
+            @include center();
+            z-index: 2; 
+            width: 680px;
+            @include desktop(){
+               width: 470px;
+            }
+                  
         }
         &-screen{
-            position: absolute;
-            left: 50%; 
-            transform: translateX(-50%);
+            @include center();
             top: 20px;
+            @include desktop(){
+                width: 446.9px;
+                height: 335px;
+            }
         }
         &-mobile{
             position: absolute;
@@ -270,38 +438,53 @@ $white-dark: #F5F5F5;
             top: 35%;
             transform: translateX(-50%);
             z-index: 3;
+            @include desktop() {
+                width: 135px;
+                height: 279px;
+            }
         }
     }
 }
 .we-do {
     &__line {
-        margin-bottom: 60px;
+        margin-bottom: 60px;       
     }
     &__text {
         text-align: center;
         margin-bottom: 70px;
+        @include laptop() {
+            margin-bottom: 50px;
+        }
     }
     &__block {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 114px;
+        @include laptop() {
+            flex-direction: column;
+            margin-bottom: 0;
+        }
     }
     &__accordion {
         margin-left: 30px;
+        @include laptop() {
+            margin: 30px 0;
+
+        }
     }
     &__button-text {
         @include font-raleway(24px,$black,700,28px);
         margin-left: 43px;
         text-transform: uppercase;
-    }
-    /*&__img-wrapper{
-        width: 170px;
-        height: 170px;
-        padding: 50px;
-        border: 2px solid #95E1D3;
-    }   для карусели*/
+    }   
 }
+.we-do__img-wrapper {
+    width: 170px;
+    height: 170px;
+    padding: 50px;
+    border: 2px solid #95E1D3;
+}  
 .team{
     &__line{
         margin-bottom: 50px;
@@ -317,6 +500,11 @@ $white-dark: #F5F5F5;
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 85px;
+        @include laptop() {
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 60px;
+        }
     }
     &__name-wrapper {
         display: flex;
@@ -326,16 +514,48 @@ $white-dark: #F5F5F5;
         height: 110px;
         text-transform: uppercase;
     }
+    &__man {
+        width: 370px;
+        height: 424px;
+        @include desktop(){
+            width: 318px;
+            height: 359px;
+        }
+        @include laptop() {
+            width: 288px;
+            height: 236px;
+        }
+    }
     &__name {
-        @include font-raleway(24px,$black ,700 ,28px )
+        @include font-raleway(24px,$black ,700 ,28px );
+        @include laptop() {
+            @include size(18px, 21px );
+        }
     }
     &__job {
-        @include font-raleway(18px,$black ,400 ,21px )
+        @include font-raleway(18px,$black ,400 ,21px );
+        @include laptop() {
+            @include size(14px, 16px);
+            margin-bottom: 30px;
+        }
     }  
+    &__block {
+        position: relative;
+    }
    .focus__rectangle {
         display: flex;
         justify-content: center;
         height: 424px;
+        @include desktop(){
+            height: 359px;
+        }
+        @include laptop() {
+            background: none;
+            opacity: 90%;
+            position: absolute;
+            left: 60px;
+            top: 36px;
+        }
    }
    &__icon {
     width: 42px;
@@ -345,9 +565,21 @@ $white-dark: #F5F5F5;
 .black-white {
     background-color: $white-light;   
     margin-bottom: 85px;
+    @include laptop() {
+        margin-bottom: 55px;
+    }
     &__icon{
         margin: 40px 0;
+        @include laptop() {
+            margin: 25px 0;
+            width: 85px;
+            height: 85px;
+        }
     } 
+    &__icon2 {
+        width: 50px;
+        height: 50px;
+    }
     &__img-wrapper{
         justify-content: center;
         display: flex;
@@ -358,16 +590,25 @@ $white-dark: #F5F5F5;
         display: flex;
         align-items: center;
         justify-content: center;
+        @include laptop() {
+            width: 85px;
+        }
     }
 }
 .some {
     margin-bottom: 125px;
+    @include laptop() {
+        margin-bottom: 85px;
+    }
     &__line {
         margin-bottom: 50px;
     }
     &__text {
         text-align: center;
         margin-bottom: 100px;
+        @include laptop() {
+            margin-bottom: 60px;
+        }
     }
     &__container {
         display: grid;
@@ -404,9 +645,15 @@ $white-dark: #F5F5F5;
     &__focus-title {
         @include font-raleway(24px,#FFFFFF ,700 ,28px );
         text-transform: uppercase;
+        @include laptop {
+            @include size (18px, 21px)
+        }
     }
     &__focus-text {
         @include font-raleway(18px,#FFFFFF ,400 ,21px );
+        @include laptop {
+            @include size (14px, 16px);
+        }
     }    
 }
 .clients {
@@ -414,15 +661,30 @@ $white-dark: #F5F5F5;
     background-size: 100% 100%;
     &__subtitle {
         padding-top: 80px;
+        @include laptop() {
+            padding-top: 50px;
+        }
     }
     &__line {
         margin-bottom: 60px;
+        @include laptop() {
+            margin-bottom: 28px;
+        }
     }
     &__card {
         width: 45%;
         display: flex;
         flex-direction: row;
         margin-bottom: 45px;
+        @include laptop() {
+            margin-bottom: 28px;
+        }
+    }
+    &__photo {
+        @include laptop() {
+            width: 88px;
+            height: 88px;
+        }
     }
     &__card-text {
         margin-left: 50px;
@@ -432,19 +694,33 @@ $white-dark: #F5F5F5;
     &__name {
         @include font-raleway(24px,#2D3033 , 700,28px );
         margin-bottom: 5px;
+        @include laptop() {
+            @include size(18px, 21px);
+        }
     }
     &__job {
         @include font-raleway(18px,#2D3033 ,400 ,21px );
         margin-bottom: 32px;
         text-transform: uppercase;
+        @include laptop() {
+            @include size(14px, 16px);
+            margin-bottom: 20px;
+        }
     }
     &__card-line {
         margin-bottom: 32px;
         width: 70px;
         border-bottom: 4px solid #F38281;
+        @include laptop() {
+            width: 47px;
+            margin-bottom: 20px;
+        }
     }
     &__text {
         @include font-raleway(18px,#2D3033 ,400 , 21px);
+        @include laptop() {
+            @include size(14px, 16px);
+        }
     }
     &__cards {
         display: flex;
@@ -452,11 +728,17 @@ $white-dark: #F5F5F5;
         flex-direction: row;
         flex-wrap: wrap;
         margin-bottom: 95px;
+        @include laptop() {
+            margin-bottom: 58px;
+        }
     }
 }
 .latest {
     &__line {
         margin-bottom: 42px;
+        @include laptop() {
+            margin-bottom: 35px;
+        }
     }
     &__card {
         width: 33%;
@@ -464,6 +746,13 @@ $white-dark: #F5F5F5;
     }
     &__card-img {
         margin-bottom: 30px;
+        @include desktop(){
+            width: 316px;
+            height: 214px;
+        }
+        @include laptop() {
+            width: 288px;
+        }
     }
     &__date {
         position: absolute;
@@ -478,19 +767,40 @@ $white-dark: #F5F5F5;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
+        @include desktop(){
+            width: 68px;
+            height: 68px;
+        }
+        @include laptop() {
+            left: 0;
+            top: 120px;
+            @include size(24px, 18px);
+        }
     }
     &__month {
         @include font-raleway(24px,#FFFFFF ,400 , 18px);
+        @include laptop() {
+            @include size(14px, 20px)
+        }
     }
     &__title {
         @include font-raleway(24px,#2D3033 ,700 ,28px );
         text-transform: uppercase;
+        @include laptop() {
+            @include size(18px, 21px)
+        }
     }
     &__text {
         @include font-raleway(18px,#2D3033 ,400 ,21px );
+        @include laptop() {
+            @include size(14px, 16px)
+        }
     }
     &__icon {
         margin-right: 20px;
+        @include laptop() {
+            margin-right: 10px;
+        }
     }
     &__icon-wrapper {
         display: flex;
@@ -498,63 +808,106 @@ $white-dark: #F5F5F5;
     }
     &__icon-block {
         margin-right: 60px;
+        @include laptop() {
+            margin-right: 20px;
+        }
     }
     &__cards {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 90px;
+        @include laptop() {
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
     }
     &__bg {
         height: 230px;
         background: linear-gradient(rgba(255, 255, 255, 0.9),rgba(255, 255, 255, 0.9)), url(../../img/latest-blog-bg.jpg) center no-repeat;
-        background-size: 100% 100%;       
+        background-size: 100% 100%;   
+        @include laptop() {
+            height: 155px;
+        }    
     }    
     &__icon-map {
         position: relative;
         left: 50%;
         transform: translate(-50%, 0);
         margin: 46px 0 25px;
+        @include laptop() {
+            margin: 25px 0;
+        }
     }
     &__title-map {
         color: #F38281;
         margin-bottom: 30px;
+        @include laptop() {
+            margin-bottom: 15px;
+        }
     }
 }
 .footer {
     background-color: #F8F8F8;
     padding-top: 80px;
+    @include laptop() {
+        padding-top:  50px;
+    }
     &__wrapper {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 40px;
+        @include laptop() {
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
     }
     &__block {
-        width: 33%;
+        width: 33%;  
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;      
     }
     &__logo {
-        margin-bottom: 50px;
+        width: 140px;
+        @include laptop() {
+            width: 95px;
+            margin-bottom: 17px;
+        }
     }
     &__mogo-text {
-        @include font-raleway(18px,#C6CBCD ,400 ,21px );
-        margin-bottom: 50px;
+        @include font-raleway(18px,#C6CBCD ,400 ,21px );    
+        @include laptop() {
+            @include size(14px, 16px)
+        }    
     }
     &__followers-number {
-        @include font-raleway(36px,#2D3033 ,700 ,30px )
+        @include font-raleway(36px,#2D3033 ,700 ,30px );
+        @include laptop() {
+            @include size(24px, 30px);
+            text-align: center;
+        }
     }
     &__followers {
         text-transform: uppercase;
-        font-style: italic;
+        font-style: italic;    
+        @include laptop() {
+            text-align: center;
+        }    
     }
     &__follow-us {
         height: 45px;
-        margin: 40px 0;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         border-top: 1px solid #C6CBCD;
+        @include laptop() {
+            margin: 15px 0;
+        }
     }
     &__follow-text {
         font-style: italic;
@@ -570,6 +923,16 @@ $white-dark: #F5F5F5;
         &::placeholder {
             text-align: center;
             @include font-raleway(18px,#C6CBCD ,400 ,21px );
+            @include laptop() {
+                @include size(14px, 16px);
+                text-align: left;
+                padding-left: 15px;
+            }
+        }
+        @include laptop() {
+            width: 288px;
+            height: 37px;
+            margin-bottom: 25px;
         }
     }
     &__button {
@@ -579,11 +942,25 @@ $white-dark: #F5F5F5;
         border: none;
         @include font-raleway(18px,#FFFFFF ,700 ,21px );
         text-transform: uppercase;
+        &:hover{
+            background: #87D2C4;
+        }
+        &:active {
+            background: #5C958A;
+        }
+        @include laptop() {
+            width: 288px;
+            height: 37px;
+            margin-bottom: 25px;
+        }
     }
     &__title {
         @include font-raleway(24px,#2D3033 ,700 ,28px );
         text-transform: uppercase;
         margin-bottom: 50px;
+        @include laptop() {
+            text-align: center;
+        }
     }
     &__blogs {
         display: flex;
