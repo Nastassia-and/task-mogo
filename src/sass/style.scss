@@ -1,215 +1,316 @@
 @import "../../reset.css";
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@700&family=Raleway:wght@400;500;600;700;900&display=swap');
 @import "../../node_modules/bootstrap/scss/bootstrap";
-$kaushan-font: 'Kaushan Script', cursive;
+$kaushan-font: 'Kaushan Script',
+cursive;
 $montserrat-font: 'Montserrat', sans-serif;
 $basic-font: 'Raleway', sans-serif;
-$pink:  #F38281;
+$pink: #F38281;
 $beige: #F9EFCF;
-$orange:  #F4BF87;
+$orange: #F4BF87;
 $green: #95E1D3;
 $black: #2D3033;
-$gray:  #C6CBCD;
+$gray: #C6CBCD;
 $white-light: #F8F8F8;
 $white-dark: #F5F5F5;
 
 @mixin font-raleway($size: false, $color: false, $weight: false, $lh: false) {
-    font-family: $basic-font; 
-    @if $size { font-size: $size; 
-    }     
-    @if $color { color: $color; 
-    } 
-    @if $weight { font-weight: $weight; 
-    } 
-    @if $lh { line-height: $lh; 
-    } 
-}
-@mixin font($font-family:false, $size: false, $color: false, $weight: false, $lh: false) {
-    @if $font-family { font-family: $font-family; 
+    font-family: $basic-font;
+
+    @if $size {
+        font-size: $size;
     }
-    @if $size { font-size: $size; 
-    } 
-    @if $color { color: $color; 
-    } 
-    @if $weight { font-weight: $weight; 
-    } 
-    @if $lh { line-height: $lh; 
-    }   
+
+    @if $color {
+        color: $color;
+    }
+
+    @if $weight {
+        font-weight: $weight;
+    }
+
+    @if $lh {
+        line-height: $lh;
+    }
 }
+
+@mixin font($font-family:false, $size: false, $color: false, $weight: false, $lh: false) {
+    @if $font-family {
+        font-family: $font-family;
+    }
+
+    @if $size {
+        font-size: $size;
+    }
+
+    @if $color {
+        color: $color;
+    }
+
+    @if $weight {
+        font-weight: $weight;
+    }
+
+    @if $lh {
+        line-height: $lh;
+    }
+}
+
 @mixin center {
-    position: absolute; 
-    left: 50%; 
+    position: absolute;
+    left: 50%;
     transform: translateX(-50%);
 }
+
 @mixin size($size: false, $height: false) {
-    @if $size { font-size: $size; 
-    }         
-    @if $height { line-height: $height; 
-    }     
-}
-@mixin desktop {
-    @media screen and (max-width: 1200px) {
-         @content;
+    @if $size {
+        font-size: $size;
+    }
+
+    @if $height {
+        line-height: $height;
     }
 }
+
+@mixin desktop {
+    @media screen and (max-width: 1200px) {
+        @content;
+    }
+}
+
 @mixin laptop {
     @media screen and (max-width: 992px) {
         @content;
     }
 }
+
+@mixin tablets {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
 .wrapper-content {
     max-width: 1170px;
     margin: auto;
-    @include desktop(){
+
+    @include desktop() {
         max-width: 998px;
     }
+
     @media screen and (max-width: 1015px) {
         margin: 0 15px;
-    }    
-}        
+    }
+}
+
 .subtitle {
-    @include font($kaushan-font,30px ,$black , 400,44px );
+    @include font($kaushan-font, 30px, $black, 400, 44px);
     display: block;
     text-align: center;
     margin-bottom: 50px;
-    @include laptop(){
+
+    @include laptop() {
         @include size(24px, 35px);
         margin-bottom: 30px;
     }
-    
-}   
+
+}
+
 .title {
-    @include font-raleway(36px,$black ,900 ,42px );
+    @include font-raleway(36px, $black, 900, 42px);
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 50px;
+
     @include laptop() {
-        @include size(24px,28px );
+        @include size(24px, 28px);
         margin-bottom: 30px;
     }
 }
-.line{
+
+.line {
     width: 170px;
     border-bottom: 4px solid #F38281;
     margin: auto;
-    @include laptop(){
+
+    @include laptop() {
         width: 148px;
     }
 }
+
 .wrapper-bg {
     max-height: 1024px;
-    background: linear-gradient(rgba(233, 130, 131, 0.9),rgba(237, 215, 137, 0.9)), url(../../img/bg-eagle.jpg) center no-repeat;
+    background: linear-gradient(rgba(233, 130, 131, 0.9), rgba(237, 215, 137, 0.9)), url(../../img/bg-eagle.jpg) center no-repeat;
     background-size: 100% 100%;
     margin-bottom: 80px;
 }
-.header{
-    @include font-raleway(14px,#FFFFFF,600,16px);
+
+.header {
+    @include font-raleway(14px, #FFFFFF, 600, 16px);
     padding: 42px 0 115px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    @include laptop(){
-       @include size(13px, 17px)
+
+    @include laptop() {
+        @include size(13px, 17px)
     }
+
     &__logo-img {
-        @include laptop(){
-        width: 66px;
-        height: 18px;}
+        @include laptop() {
+            width: 66px;
+            height: 18px;
+        }
+
+        @include tablets() {
+            width: 54px;
+            height: 14px;
+        }
     }
-    &__list{
+
+    &__list {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;  
+        justify-content: space-between;
+
+        @include tablets() {
+            display: none;
+        }
     }
-    &__nav{
-        width: 100%;        
-        &-container{            
-        width: 55%;
-        }         
+
+    &__nav {
+        width: 100%;
+
+        &-container {
+            width: 55%;
+        }
     }
-    &__nav-link{     
+
+    &__nav-link {
         text-decoration: none;
         text-transform: uppercase;
         color: #FFFFFF;
-        &:hover{
+
+        &:hover {
             color: #F4BF87;
             border-bottom: 1px solid #F4BF87;
         }
-    } 
-}    
-.welcome-part{
-    &__subtitle{
-        @include font($kaushan-font,64px,#FFFFFF,400,93px);
+    }
+}
+
+.welcome-part {
+    &__subtitle {
+        @include font($kaushan-font, 64px, #FFFFFF, 400, 93px);
         display: block;
         text-align: center;
-        @include laptop(){
-            @include size(48px,70px )
+
+        @include laptop() {
+            @include size(48px, 70px)
+        }
+
+        @include tablets() {
+            @include size(36px, 52px)
         }
     }
-    &__title-wrapper{
+
+    &__title-wrapper {
         max-width: 900px;
         margin: auto;
+
+        @include tablets() {
+            width: 288px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+        }
     }
-    &__title{
-        @include font($montserrat-font,144px ,#FFFFFF ,700 ,176px );
+
+    &__title {
+        @include font($montserrat-font, 144px, #FFFFFF, 700, 176px);
         text-transform: uppercase;
         text-align: center;
         margin-bottom: 50px;
-        @include laptop(){
+
+        @include laptop() {
             @include size(96px, 117px);
         }
-    }
-    .line{
-        width: 170px;
-        border-bottom: 4px solid #FFFFFF;
-        margin: 0 auto 75px ;
-        @include laptop(){
-            width: 115px;
+
+        @include tablets() {
+            @include size(48px, 58px)
         }
     }
-    &__button{
+
+    .line {
+        width: 170px;
+        border-bottom: 4px solid #FFFFFF;
+        margin: 0 auto 75px;
+
+        @include laptop() {
+            width: 115px;
+        }
+
+        @include tablets() {
+            width: 134px;
+        }
+    }
+
+    &__button {
         width: 369px;
         height: 77px;
         border: 4px solid #FFFFFF;
         background-color: transparent;
-        @include font-raleway(24px,#FFFFFF ,700 ,28px );
+        @include font-raleway(24px, #FFFFFF, 700, 28px);
         text-transform: uppercase;
         @include center;
-        &:hover{
+
+        &:hover {
             background: #FFFFFF;
             color: #E4BE8D;
         }
-        &:active{
+
+        &:active {
             background: #FFFFFF;
             border: 4px solid #E4BE8D;
             color: #E4BE8D;
         }
-        @include laptop(){
+
+        @include laptop() {
             width: 317px;
             height: 52px;
             @include size(18px, 21px)
         }
+
+        @include tablets() {
+            width: 285px;
+        }
     }
-    .intro-work-about{/*потом удалить, для контента*/
-        margin:268px auto 0;
+
+    .intro-work-about {
+        /*потом удалить, для контента*/
+        margin: 268px auto 0;
     }
 }
-.focus__rectangle{ 
-    display: flex;   
+
+.focus__rectangle {
+    display: flex;
     position: absolute;
     top: 0;
     opacity: 0;
     width: 370px;
     background: linear-gradient(360deg, rgba(237, 215, 137, 0.9) 0%, rgba(233, 130, 131, 0.9) 100%);
-    &:hover{   
-        opacity: 90%;     
-        transform: translate3d(-10px,-10px,0);
+
+    &:hover {
+        opacity: 90%;
+        transform: translate3d(-10px, -10px, 0);
     }
-    @include desktop(){
+
+    @include desktop() {
         width: 317px;
     }
-    @include laptop(){
-        width:288px ;          
+
+    @include laptop() {
+        width: 288px;
+
         &:hover {
             transform: none;
             opacity: none;
@@ -217,105 +318,145 @@ $white-dark: #F5F5F5;
 
     }
 }
-.about{
-    .line{
+
+.about {
+    .line {
         margin-bottom: 40px;
-        @include laptop(){
+
+        @include laptop() {
             margin-bottom: 30px;
         }
     }
-    &__text{
-        @include font-raleway(18px,#000000 ,400 ,21px );
+
+    &__text {
+        @include font-raleway(18px, #000000, 400, 21px);
         text-align: center;
         margin-bottom: 65px;
         @include size(14px, 16px);
     }
-    &__img-container{
+
+    &__img-container {
         position: relative;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 106px;
-        @include laptop(){
+
+        @include laptop() {
             margin-bottom: 60px;
             flex-direction: column;
             align-items: center;
         }
     }
+
     &__img {
-        @include desktop(){
+        @include desktop() {
             width: 320px;
             height: 282px;
         }
+
         @include laptop() {
             width: 288px;
             height: 258px;
             margin-bottom: 15px;
         }
     }
+
     &__img-wrapper {
-        @include laptop(){
-            height: 258px;  
+        @include laptop() {
+            height: 258px;
             margin-bottom: 15px;
         }
     }
-    &__square-green{
+
+    &__square-green {
         width: 370px;
         height: 338px;
         background-color: $green;
-        @include desktop(){
+
+        @include desktop() {
             width: 320px;
             height: 282px;
         }
+
         @include laptop() {
             width: 288px;
             height: 258px;
         }
     }
-    .focus__rectangle{
+
+    .focus__rectangle {
         flex-direction: column;
         align-items: center;
         justify-content: center;
         height: 338px;
-        @include desktop(){
-        height: 282px;
+
+        @include desktop() {
+            height: 282px;
         }
-        @include laptop(){           
+
+        @include laptop() {
             opacity: 90%;
-            height: 83px;            
+            height: 83px;
             flex-direction: row;
-            justify-content:left;
+            justify-content: left;
             position: relative;
             top: -97px;
         }
-        .icon-add-user{
+
+        .icon-add-user {
             width: 40px;
             margin-bottom: 30px;
-            @include laptop(){
+
+            @include laptop() {
                 width: 33px;
                 height: 33px;
                 margin: 0 45px 0 17px;
             }
         }
-        .text{
-            @include font-raleway(24px,#FFFFFF ,500 ,28px );
+
+        .text {
+            @include font-raleway(24px, #FFFFFF, 500, 28px);
             text-transform: uppercase;
-            @include laptop(){
+
+            @include laptop() {
                 @include size(18px, 21px);
             }
         }
-    }    
-}   
-.green-container{
-    display: grid;
-    grid-column-gap:1px;
-    grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr 1fr;
-    margin-bottom: 50px;
-    @include laptop(){
-        margin-bottom: 30px;
     }
 }
-.green-rectangle{
+
+.green-container {
+    display: grid;
+    grid-column-gap: 1px;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr 1fr;
+    margin-bottom: 50px;
+
+    @include laptop() {
+        margin-bottom: 30px;
+    }
+
+    @include tablets() {
+        grid-template-columns: 2fr 2fr;
+        grid-column-gap: 0;
+        grid-row-gap: 1px;
+    }
+}
+
+.green-rectangle-last {
+    @include tablets() {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }    
+}
+
+#green-rectangle-zero {
+    @include tablets() {
+        display: none;
+    }
+}
+
+.green-rectangle {
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -323,121 +464,145 @@ $white-dark: #F5F5F5;
     justify-content: center;
     height: 250px;
     background-color: $green;
-    &__text{
-        @include font-raleway(24px,#FFFFFF ,700 ,28px );
+
+    &__text {
+        @include font-raleway(24px, #FFFFFF, 700, 28px);
         text-align: center;
-        @include laptop(){
+
+        @include laptop() {
             @include size(18px, 21px);
-        }
+        }       
     }
-    &__number{
-        @include font-raleway(64px,#FFFFFF ,700 ,75px );
+
+    &__number {
+        @include font-raleway(64px, #FFFFFF, 700, 75px);
         margin-bottom: 15px;
-        @include laptop(){
+
+        @include laptop() {
             @include size(48px, 56px);
         }
     }
-    @include laptop(){
-        height: 166px;        
+
+    @include laptop() {
+        height: 166px;
     }
 }
+
 .work {
-    &__line{
+    &__line {
         margin-bottom: 90px;
-       
+
     }
-    &__container{
+
+    &__container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-column-gap: 60px;
         grid-row-gap: 150px;
         margin-bottom: 133px;
-        @include laptop(){
+
+        @include laptop() {
             grid-column-gap: 40px;
             grid-row-gap: 55px;
             margin-bottom: 58px;
         }
     }
-    &__block{
+
+    &__block {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
-    &__text-wrapper{
+
+    &__text-wrapper {
         width: 73%;
     }
-    &__icon-title{
-        @include font-raleway(24px,$black ,700 ,28px );
+
+    &__icon-title {
+        @include font-raleway(24px, $black, 700, 28px);
         text-transform: uppercase;
         margin-bottom: 60px;
-        @include laptop(){
+
+        @include laptop() {
             @include size(18px, 21px);
             margin-bottom: 45px;
         }
     }
-    &__icon-text{
-        @include font-raleway(18px,$black ,400 ,21px );
+
+    &__icon-text {
+        @include font-raleway(18px, $black, 400, 21px);
+
         @include laptop() {
             @include size(14px, 16px);
         }
     }
-    &__icon{
-       width: 50px;
-       height: 50px;
-       @include laptop() {
-           width: 42px;
-           height: 42px;
-       }
+
+    &__icon {
+        width: 50px;
+        height: 50px;
+
+        @include laptop() {
+            width: 42px;
+            height: 42px;
+        }
     }
 }
 
-.design{
-    background: linear-gradient(rgba(255, 255, 255, 0.8),rgba(255, 255, 255, 0.8)), url(../../img/bg-design.jpg) center no-repeat;
+.design {
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(../../img/bg-design.jpg) center no-repeat;
     background-size: 100% 100%;
 
-    &__line{
+    &__line {
         margin-bottom: 59px;
-        @include laptop(){
+
+        @include laptop() {
             margin-bottom: 40px;
         }
     }
 
-    &__images{
+    &__images {
         margin: auto;
         max-width: 1170px;
         height: 582px;
-        position: relative;      
-        margin-bottom: 55px; 
-        @include laptop(){
+        position: relative;
+        margin-bottom: 55px;
+
+        @include laptop() {
             margin-bottom: 38px;
         }
-        @include desktop(){
-            max-width: 793px;
-        } 
 
-        &-rectangle{
-            @include center();
-            z-index: 2; 
-            width: 680px;
-            @include desktop(){
-               width: 470px;
-            }
-                  
+        @include desktop() {
+            max-width: 793px;
         }
-        &-screen{
+
+        &-rectangle {
+            @include center();
+            z-index: 2;
+            width: 680px;
+
+            @include desktop() {
+                width: 470px;
+            }
+
+        }
+
+        &-screen {
             @include center();
             top: 20px;
-            @include desktop(){
+
+            @include desktop() {
                 width: 446.9px;
                 height: 335px;
             }
         }
-        &-mobile{
+
+        &-mobile {
             position: absolute;
-            left: 73%; 
+            left: 73%;
             top: 35%;
             transform: translateX(-50%);
             z-index: 3;
+
             @include desktop() {
                 width: 135px;
                 height: 279px;
@@ -445,67 +610,81 @@ $white-dark: #F5F5F5;
         }
     }
 }
+
 .we-do {
     &__line {
-        margin-bottom: 60px;       
+        margin-bottom: 60px;
     }
+
     &__text {
         text-align: center;
         margin-bottom: 70px;
+
         @include laptop() {
             margin-bottom: 50px;
         }
     }
+
     &__block {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 114px;
+
         @include laptop() {
             flex-direction: column;
             margin-bottom: 0;
         }
     }
+
     &__accordion {
         margin-left: 30px;
+
         @include laptop() {
             margin: 30px 0;
 
         }
     }
+
     &__button-text {
-        @include font-raleway(24px,$black,700,28px);
+        @include font-raleway(24px, $black, 700, 28px);
         margin-left: 43px;
         text-transform: uppercase;
-    }   
+    }
 }
+
 .we-do__img-wrapper {
     width: 170px;
     height: 170px;
     padding: 50px;
     border: 2px solid #95E1D3;
-}  
-.team{
-    &__line{
+}
+
+.team {
+    &__line {
         margin-bottom: 50px;
     }
-    &__text{
-        @include font-raleway(18px,#000000,400 ,21px );
+
+    &__text {
+        @include font-raleway(18px, #000000, 400, 21px);
         text-align: center;
         margin-bottom: 75px;
     }
-    &__wrapper{
+
+    &__wrapper {
         position: relative;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 85px;
+
         @include laptop() {
             flex-direction: column;
             align-items: center;
             margin-bottom: 60px;
         }
     }
+
     &__name-wrapper {
         display: flex;
         flex-direction: column;
@@ -514,41 +693,53 @@ $white-dark: #F5F5F5;
         height: 110px;
         text-transform: uppercase;
     }
+
     &__man {
         width: 370px;
         height: 424px;
-        @include desktop(){
+
+        @include desktop() {
             width: 318px;
             height: 359px;
         }
+
         @include laptop() {
             width: 288px;
             height: 236px;
         }
     }
+
     &__name {
-        @include font-raleway(24px,$black ,700 ,28px );
+        @include font-raleway(24px, $black, 700, 28px);
+
         @include laptop() {
-            @include size(18px, 21px );
+            @include size(18px, 21px);
         }
     }
+
     &__job {
-        @include font-raleway(18px,$black ,400 ,21px );
+        @include font-raleway(18px, $black, 400, 21px);
+
         @include laptop() {
             @include size(14px, 16px);
             margin-bottom: 30px;
         }
-    }  
+    }
+
     &__block {
         position: relative;
     }
-   .focus__rectangle {
+
+    .focus__rectangle {
         display: flex;
         justify-content: center;
+        align-items: center;
         height: 424px;
-        @include desktop(){
+
+        @include desktop() {
             height: 359px;
         }
+
         @include laptop() {
             background: none;
             opacity: 90%;
@@ -556,204 +747,264 @@ $white-dark: #F5F5F5;
             left: 60px;
             top: 36px;
         }
-   }
-   &__icon {
-    width: 42px;
-    margin-right: 1px;
-   }
-}  
+    }
+
+    &__icon {
+        width: 42px;
+        margin-right: 1px;
+    }
+
+    .focus__ractangle-a {
+        height: 42px;
+    }
+}
+
 .black-white {
-    background-color: $white-light;   
+    background-color: $white-light;
     margin-bottom: 85px;
+
     @include laptop() {
         margin-bottom: 55px;
     }
-    &__icon{
+
+    &__icon {
         margin: 40px 0;
+
         @include laptop() {
             margin: 25px 0;
             width: 85px;
             height: 85px;
         }
-    } 
-    &__icon2 {
-        width: 50px;
-        height: 50px;
     }
-    &__img-wrapper{
+
+    &__icon2 {
+        width: 70px;
+        height: 70px;
+
+        @include laptop() {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    &__img-wrapper {
         justify-content: center;
         display: flex;
         flex-direction: row;
     }
-    &__icon-wrapper{
+
+    &__icon-wrapper {
         width: 129px;
         display: flex;
         align-items: center;
         justify-content: center;
+
         @include laptop() {
             width: 85px;
         }
     }
 }
+
 .some {
     margin-bottom: 125px;
+
     @include laptop() {
         margin-bottom: 85px;
     }
+
     &__line {
         margin-bottom: 50px;
     }
+
     &__text {
         text-align: center;
         margin-bottom: 100px;
+
         @include laptop() {
             margin-bottom: 60px;
         }
     }
+
     &__container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
-    &__img3{
-        grid-column-start: 3 ;
+
+    &__img3 {
+        grid-column-start: 3;
         grid-row-start: 1;
         grid-row-end: 3;
     }
+
     &__img {
         width: 100%;
         height: 100%;
     }
-    &__img-wrapper{
+
+    &__img-wrapper {
         position: relative;
     }
-    .focus__rectangle{
+
+    .focus__rectangle {
         flex-direction: column;
         justify-content: center;
         align-items: center;
         position: absolute;
         height: 100%;
         width: 100%;
-        &:hover{
+
+        &:hover {
             transform: none;
         }
     }
+
     &__focus-icon {
         width: 42px;
         height: 42px;
         margin-bottom: 60px
     }
+
     &__focus-title {
-        @include font-raleway(24px,#FFFFFF ,700 ,28px );
+        @include font-raleway(24px, #FFFFFF, 700, 28px);
         text-transform: uppercase;
+
         @include laptop {
             @include size (18px, 21px)
         }
     }
+
     &__focus-text {
-        @include font-raleway(18px,#FFFFFF ,400 ,21px );
+        @include font-raleway(18px, #FFFFFF, 400, 21px);
+
         @include laptop {
             @include size (14px, 16px);
         }
-    }    
+    }
 }
+
 .clients {
-    background: linear-gradient(rgba(255, 255, 255, 0.9),rgba(255, 255, 255, 0.9)), url(../../img/bg-clients.jpg) center no-repeat;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(../../img/bg-clients.jpg) center no-repeat;
     background-size: 100% 100%;
+
     &__subtitle {
         padding-top: 80px;
+
         @include laptop() {
             padding-top: 50px;
         }
     }
+
     &__line {
         margin-bottom: 60px;
+
         @include laptop() {
             margin-bottom: 28px;
         }
     }
+
     &__card {
         width: 45%;
         display: flex;
         flex-direction: row;
         margin-bottom: 45px;
+
         @include laptop() {
             margin-bottom: 28px;
         }
     }
+
     &__photo {
         @include laptop() {
             width: 88px;
             height: 88px;
         }
     }
+
     &__card-text {
         margin-left: 50px;
         display: flex;
         flex-direction: column;
     }
+
     &__name {
-        @include font-raleway(24px,#2D3033 , 700,28px );
+        @include font-raleway(24px, #2D3033, 700, 28px);
         margin-bottom: 5px;
+
         @include laptop() {
             @include size(18px, 21px);
         }
     }
+
     &__job {
-        @include font-raleway(18px,#2D3033 ,400 ,21px );
+        @include font-raleway(18px, #2D3033, 400, 21px);
         margin-bottom: 32px;
         text-transform: uppercase;
+
         @include laptop() {
             @include size(14px, 16px);
             margin-bottom: 20px;
         }
     }
+
     &__card-line {
         margin-bottom: 32px;
         width: 70px;
         border-bottom: 4px solid #F38281;
+
         @include laptop() {
             width: 47px;
             margin-bottom: 20px;
         }
     }
+
     &__text {
-        @include font-raleway(18px,#2D3033 ,400 , 21px);
+        @include font-raleway(18px, #2D3033, 400, 21px);
+
         @include laptop() {
             @include size(14px, 16px);
         }
     }
+
     &__cards {
         display: flex;
         justify-content: space-between;
         flex-direction: row;
         flex-wrap: wrap;
         margin-bottom: 95px;
+
         @include laptop() {
             margin-bottom: 58px;
         }
     }
 }
+
 .latest {
     &__line {
         margin-bottom: 42px;
+
         @include laptop() {
             margin-bottom: 35px;
         }
     }
+
     &__card {
         width: 33%;
         position: relative;
     }
+
     &__card-img {
         margin-bottom: 30px;
-        @include desktop(){
+
+        @include desktop() {
             width: 316px;
             height: 214px;
         }
+
         @include laptop() {
             width: 288px;
         }
     }
+
     &__date {
         position: absolute;
         top: 150px;
@@ -761,218 +1012,307 @@ $white-dark: #F5F5F5;
         width: 80px;
         height: 80px;
         background: #95E1D3;
-        @include font-raleway(36px, #FFFFFF,700 ,30px );
+        @include font-raleway(36px, #FFFFFF, 700, 30px);
         text-transform: uppercase;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        @include desktop(){
+
+        @include desktop() {
             width: 68px;
             height: 68px;
         }
+
         @include laptop() {
             left: 0;
             top: 120px;
             @include size(24px, 18px);
         }
     }
+
     &__month {
-        @include font-raleway(24px,#FFFFFF ,400 , 18px);
+        @include font-raleway(24px, #FFFFFF, 400, 18px);
+
         @include laptop() {
             @include size(14px, 20px)
         }
     }
+
     &__title {
-        @include font-raleway(24px,#2D3033 ,700 ,28px );
+        @include font-raleway(24px, #2D3033, 700, 28px);
         text-transform: uppercase;
+
         @include laptop() {
             @include size(18px, 21px)
         }
     }
+
     &__text {
-        @include font-raleway(18px,#2D3033 ,400 ,21px );
+        @include font-raleway(18px, #2D3033, 400, 21px);
+
         @include laptop() {
             @include size(14px, 16px)
         }
     }
+
     &__icon {
         margin-right: 20px;
+
         @include laptop() {
             margin-right: 10px;
         }
     }
+
     &__icon-wrapper {
         display: flex;
         flex-direction: row;
     }
+
     &__icon-block {
         margin-right: 60px;
+
         @include laptop() {
             margin-right: 20px;
         }
     }
+
     &__cards {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 90px;
+
         @include laptop() {
             flex-direction: column;
             align-items: center;
             margin-bottom: 30px;
         }
     }
+
     &__bg {
         height: 230px;
-        background: linear-gradient(rgba(255, 255, 255, 0.9),rgba(255, 255, 255, 0.9)), url(../../img/latest-blog-bg.jpg) center no-repeat;
-        background-size: 100% 100%;   
+        background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url(../../img/latest-blog-bg.jpg) center no-repeat;
+        background-size: 100% 100%;
+
         @include laptop() {
             height: 155px;
-        }    
-    }    
+        }
+    }
+
     &__icon-map {
         position: relative;
         left: 50%;
         transform: translate(-50%, 0);
         margin: 46px 0 25px;
+
         @include laptop() {
             margin: 25px 0;
         }
     }
+
     &__title-map {
         color: #F38281;
         margin-bottom: 30px;
+
         @include laptop() {
             margin-bottom: 15px;
         }
     }
 }
+
 .footer {
     background-color: #F8F8F8;
     padding-top: 80px;
+
     @include laptop() {
-        padding-top:  50px;
+        padding-top: 50px;
     }
+
     &__wrapper {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 40px;
+
         @include laptop() {
             flex-direction: column;
             align-items: center;
             margin-bottom: 30px;
         }
     }
+
     &__block {
-        width: 33%;  
+        width: 33%;
+        margin-right: 15px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;      
+        justify-content: space-between;
+
+        @include laptop() {
+            width: 50%;
+        }
     }
+
+    &__instagram {
+        width:  33%;
+
+        @include laptop() {
+            width: 50%;
+        }
+    }
+
     &__logo {
         width: 140px;
+
         @include laptop() {
             width: 95px;
             margin-bottom: 17px;
         }
     }
+
     &__mogo-text {
-        @include font-raleway(18px,#C6CBCD ,400 ,21px );    
+        @include font-raleway(18px, #C6CBCD, 400, 21px);
+
         @include laptop() {
-            @include size(14px, 16px)
-        }    
+            @include size(14px, 16px);
+            text-align: center;
+        }
     }
+
     &__followers-number {
-        @include font-raleway(36px,#2D3033 ,700 ,30px );
+        @include font-raleway(36px, #2D3033, 700, 30px);
+
         @include laptop() {
             @include size(24px, 30px);
             text-align: center;
         }
     }
+
     &__followers {
         text-transform: uppercase;
-        font-style: italic;    
+        font-style: italic;
+
         @include laptop() {
             text-align: center;
-        }    
+        }
     }
+
     &__follow-us {
         height: 45px;
         display: flex;
         flex-direction: row;
+        flex-wrap: nowrap;
         justify-content: space-between;
         align-items: center;
         border-top: 1px solid #C6CBCD;
+
         @include laptop() {
             margin: 15px 0;
         }
     }
+
     &__follow-text {
         font-style: italic;
-        @include font-raleway(13px,#C6CBCD ,400 ,15px );
+        @include font-raleway(13px, #C6CBCD, 400, 15px);
     }
+
     &__follow-icon {
-        text-decoration: none;
+        text-decoration: none;    
+        @include laptop() {
+            width: 16px;
+            height: 16px;
+        }    
     }
+
+    &__follow-img {
+        @include laptop() {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    &__follow-icons {
+        width: 70%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
     &__input {
         width: 237px;
         height: 55px;
         border: 1px solid #C6CBCD;
+
         &::placeholder {
             text-align: center;
-            @include font-raleway(18px,#C6CBCD ,400 ,21px );
+            @include font-raleway(18px, #C6CBCD, 400, 21px);
+
             @include laptop() {
                 @include size(14px, 16px);
                 text-align: left;
                 padding-left: 15px;
             }
         }
+
         @include laptop() {
             width: 288px;
             height: 37px;
             margin-bottom: 25px;
         }
     }
+
     &__button {
         width: 133px;
         height: 55px;
         background: #95E1D3;
         border: none;
-        @include font-raleway(18px,#FFFFFF ,700 ,21px );
+        @include font-raleway(18px, #FFFFFF, 700, 21px);
         text-transform: uppercase;
-        &:hover{
+
+        &:hover {
             background: #87D2C4;
         }
+
         &:active {
             background: #5C958A;
         }
+
         @include laptop() {
             width: 288px;
             height: 37px;
             margin-bottom: 25px;
         }
     }
+
     &__title {
-        @include font-raleway(24px,#2D3033 ,700 ,28px );
+        @include font-raleway(24px, #2D3033, 700, 28px);
         text-transform: uppercase;
         margin-bottom: 50px;
+
         @include laptop() {
             text-align: center;
         }
     }
+
     &__blogs {
         display: flex;
         flex-direction: column;
     }
+
     &__blog-title {
-        @include font-raleway(18px, #2D3033,700 , 21px);
+        @include font-raleway(18px, #2D3033, 700, 21px);
         text-transform: uppercase;
+
+        @include laptop() {
+            @include size(14px, 16px);
+        }
     }
+
     &__blog-date {
-        @include font-raleway(13px,#2D3033 ,400 ,15px );
+        @include font-raleway(13px, #2D3033, 400, 15px);
     }
+
     &__blog-wrapper {
         display: flex;
         flex-direction: row;
@@ -980,26 +1320,40 @@ $white-dark: #F5F5F5;
         align-items: center;
         margin-bottom: 20px;
     }
+
     &__blog-img {
         margin-right: 30px;
+
+        @include laptop() {
+            margin-right: 15px;
+        }
     }
+
     &__img-section {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         margin-bottom: 40px;
     }
+
+    &__img {
+        width: 100%;
+        height: 100%;
+    }
+
     &__see-all {
         text-transform: uppercase;
-        @include font-raleway(13px,#2D3033 ,400 ,15px );
+        @include font-raleway(13px, #2D3033, 400, 15px);
     }
+
     &__info {
         border-top: 1px solid #C6CBCD;
+
         &-text {
-            @include font-raleway(13px,#2D3033 ,700 ,15px );
+            @include font-raleway(13px, #2D3033, 700, 15px);
             text-transform: uppercase;
             text-align: center;
             margin-top: 30px;
         }
-    }  
+    }
 
 }

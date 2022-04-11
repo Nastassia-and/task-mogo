@@ -65,7 +65,6 @@
         </div>
     </div>
     <!--TODO карусельку-->
-    
     <section class="about">
         <div class="wrapper-content">
             <span class="subtitle">What we do</span>
@@ -80,28 +79,34 @@
                 <div class="about__img-wrapper">
                     <div class="about__img about__square-green"></div>
                     <div class="focus__rectangle">
-                        <img class="icon-add-user" src="./img/icon_user-plus.png" alt="icon add user">
+                        <a href="#">
+                            <img class="icon-add-user" src="./img/icon_user-plus.png" alt="icon add user">
+                        </a>
                         <span class="text">Super team</span>
                     </div>
                 </div>
                 <div class="about__img-wrapper">
                     <img class="about__img" src="./img/img_about-us-1.jpg">
                     <div class="focus__rectangle">
-                        <img class="icon-add-user" src="./img/icon_user-plus.png" alt="icon add user">
+                        <a href="#">
+                            <img class="icon-add-user" src="./img/icon_user-plus.png" alt="icon add user">
+                        </a>
                         <span class="text">Super team</span>
                     </div>
                 </div>
                 <div class="about__img-wrapper">
                     <img class="about__img" src="./img/img_about-us-2.jpg">
                     <div class="focus__rectangle">
-                        <img class="icon-add-user" src="./img/icon_user-plus.png" alt="icon add user">
+                        <a href="#">
+                            <img class="icon-add-user" src="./img/icon_user-plus.png" alt="icon add user">
+                        </a>
                         <span class="text">Super team</span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="green-container">
-            <div class="green-rectangle"></div>
+            <div class="green-rectangle" id="green-rectangle-zero"></div>
             <div class="green-rectangle">
                 <span class="green-rectangle__number">42</span>
                 <span class="green-rectangle__text">Lorem ipsum</span>
@@ -118,11 +123,11 @@
                 <span class="green-rectangle__number">99</span>
                 <span class="green-rectangle__text">Lorem ipsum</span>
             </div>
-            <div class="green-rectangle">
+            <div class="green-rectangle green-rectangle-last">
                 <span class="green-rectangle__number">24</span>
                 <span class="green-rectangle__text">Lorem ipsum</span>
             </div>
-            <div class="green-rectangle"></div>
+            <div class="green-rectangle" id="green-rectangle-zero" ></div>
         </div>
     </section>
     <section class="work">
@@ -235,9 +240,7 @@
                         <h2 class="accordion-header" id="headingTwo">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-
                                 <img src="./img/icon-we-do-creativity.png">
-
                                 <span class="we-do__button-text"> creativity </span>
                             </button>
                         </h2>
@@ -274,7 +277,6 @@
                 </div>
             </div>
             <!--TODO карусельку-->
-
         </section>
         <section class="team">
             <div class="subtitle">Who we are</div>
@@ -290,10 +292,18 @@
                     <div class="team__img-wrapper">
                         <img class="team__man" src="./img/man-1.jpg" alt="man">
                         <div class="focus__rectangle">
-                            <img class="team__icon" src="./img/icon-team-f.svg" alt="icon">
-                            <img class="team__icon" src="./img/icon-team-tw.svg" alt="icon">
-                            <img class="team__icon" src="./img/icon-team-pint.svg" alt="icon">
-                            <img class="team__icon" src="./img/icon-team-inst.svg" alt="icon">
+                            <a class="focus__ractangle-a" href="#">
+                                <img class="team__icon" src="./img/icon-team-f.svg" alt="icon">
+                            </a>
+                            <a class="focus__ractangle-a" href="#">
+                                <img class="team__icon" src="./img/icon-team-tw.svg" alt="icon">
+                            </a>
+                            <a class="focus__ractangle-a" href="#">
+                                <img class="team__icon" src="./img/icon-team-pint.svg" alt="icon">
+                            </a>
+                            <a class="focus__ractangle-a" href="#">
+                                <img class="team__icon" src="./img/icon-team-inst.svg" alt="icon">
+                            </a>
                         </div>
                     </div>
                     <div class="team__name-wrapper">
@@ -305,10 +315,18 @@
                     <div class="team__img-wrapper">
                         <img class="team__man" src="./img/man-2.jpg" alt="man">
                         <div class="focus__rectangle">
-                            <img class="team__icon" src="./img/icon-team-f.svg" alt="icon">
-                            <img class="team__icon" src="./img/icon-team-tw.svg" alt="icon">
-                            <img class="team__icon" src="./img/icon-team-pint.svg" alt="icon">
-                            <img class="team__icon" src="./img/icon-team-inst.svg" alt="icon">
+                            <a class="focus__ractangle-a" href="#">
+                                <img class="team__icon" src="./img/icon-team-f.svg" alt="icon">
+                            </a>
+                            <a class="focus__ractangle-a" href="#">
+                                <img class="team__icon" src="./img/icon-team-tw.svg" alt="icon">
+                            </a>
+                            <a class="focus__ractangle-a" href="#">
+                                <img class="team__icon" src="./img/icon-team-pint.svg" alt="icon">
+                            </a>
+                            <a class="focus__ractangle-a" href="#">
+                                <img class="team__icon" src="./img/icon-team-inst.svg" alt="icon">
+                            </a>
                         </div>
                     </div>
                     <div class="team__name-wrapper">
@@ -320,10 +338,18 @@
                     <div class="team__img-wrapper">
                         <img class="team__man" src="./img/man-3.jpg" alt="man">
                         <div class="focus__rectangle">
-                            <img class="team__icon" src="./img/icon-team-f.svg" alt="icon">
-                            <img class="team__icon" src="./img/icon-team-tw.svg" alt="icon">
-                            <img class="team__icon" src="./img/icon-team-pint.svg" alt="icon">
-                            <img class="team__icon" src="./img/icon-team-inst.svg" alt="icon">
+                            <a class="focus__ractangle-a" href="#">
+                                <img class="team__icon" src="./img/icon-team-f.svg" alt="icon">
+                            </a>
+                            <a class="focus__ractangle-a" href="#">
+                                <img class="team__icon" src="./img/icon-team-tw.svg" alt="icon">
+                            </a>
+                            <a class="focus__ractangle-a" href="#">
+                                <img class="team__icon" src="./img/icon-team-pint.svg" alt="icon">
+                            </a>
+                            <a class="focus__ractangle-a" href="#">
+                                <img class="team__icon" src="./img/icon-team-inst.svg" alt="icon">
+                            </a>
                         </div>
                     </div>
                     <div class="team__name-wrapper">
@@ -422,9 +448,8 @@
                 </div>
                 <img class="some__img" src="./img/some-img7.jpg" alt="">
             </div>
-            <!--TODO каруселька-->
-
         </div>
+        <!--TODO каруселька-->
     </section>
     <section class="clients">
         <div class="wrapper-content">
@@ -584,38 +609,39 @@
                 <div>
                     <span class="footer__followers-number">15k</span>
                     <span class="footer__followers">followers</span>
-                </div>               
+                </div>
                 <div class="footer__follow-us">
                     <span class="footer__follow-text">Follow Us</span>
                     <div class="footer__follow-icons">
                         <a class="footer__follow-icon" href="#">
-                            <img src="./img/footer-follow-us-facebook.png" alt="icon">
+                            <img class="footer__follow-img" src="./img/footer-follow-us-facebook.png" alt="icon">
                         </a>
                         <a class="footer__follow-icon" href="#">
-                            <img src="./img/footer-follow-us-twitter.png" alt="icon">
+                            <img class="footer__follow-img" src="./img/footer-follow-us-twitter.png" alt="icon">
                         </a>
                         <a class="footer__follow-icon" href="#">
-                            <img src="./img/footer-follow-us-instagram.png" alt="icon">
+                            <img class="footer__follow-img" src="./img/footer-follow-us-instagram.png" alt="icon">
                         </a>
                         <a class="footer__follow-icon" href="#">
-                            <img src="./img/footer-follow-us-pinterest.png" alt="icon">
+                            <img class="footer__follow-img" src="./img/footer-follow-us-pinterest.png" alt="icon">
                         </a>
                         <a class="footer__follow-icon" href="#">
-                            <img src="./img/footer-follow-us-linkedin.png" alt="icon">
+                            <img class="footer__follow-img" src="./img/footer-follow-us-linkedin.png" alt="icon">
                         </a>
                         <a class="footer__follow-icon" href="#">
-                            <img src="./img/footer-follow-us-youtube.png" alt="icon">
+                            <img class="footer__follow-img" src="./img/footer-follow-us-youtube.png" alt="icon">
                         </a>
                         <a class="footer__follow-icon" href="#">
-                            <img src="./img/footer-follow-us-dribble.png" alt="icon">
+                            <img class="footer__follow-img" src="./img/footer-follow-us-dribble.png" alt="icon">
                         </a>
                         <a class="footer__follow-icon" href="#">
-                            <img src="./img/footer-follow-us-tiktok.png" alt="icon">
+                            <img class="footer__follow-img" src="./img/footer-follow-us-tiktok.png" alt="icon">
                         </a>
                     </div>
                 </div>
                 <form class="footer__form">
-                    <input class="footer__input" placeholder="Your Email"><button class="footer__button">subscribe</button>
+                    <input class="footer__input" placeholder="Your Email"><button
+                        class="footer__button">subscribe</button>
                 </form>
             </div>
             <div class="footer__block footer__blogs">
@@ -653,47 +679,47 @@
                 <div class="footer__img-section">
                     <div class="footer__inst-wrapper">
                         <a class="footer__inst-img" href="#">
-                            <img src="./img/footer-inst1.svg">
+                            <img class="footer__img" src="./img/footer-inst1.svg">
                         </a>
                     </div>
                     <div class="footer__inst-wrapper">
                         <a class="footer__inst-img" href="#">
-                            <img src="./img/footer-inst2.svg">
+                            <img class="footer__img" src="./img/footer-inst2.svg">
                         </a>
                     </div>
                     <div class="footer__inst-wrapper">
                         <a class="footer__inst-img" href="#">
-                            <img src="./img/footer-inst3.svg">
+                            <img class="footer__img" src="./img/footer-inst3.svg">
                         </a>
                     </div>
                     <div class="footer__inst-wrapper">
                         <a class="footer__inst-img" href="#">
-                            <img src="./img/footer-inst4.svg">
+                            <img class="footer__img" src="./img/footer-inst4.svg">
                         </a>
                     </div>
                     <div class="footer__inst-wrapper">
                         <a class="footer__inst-img" href="#">
-                            <img src="./img/footer-inst5.svg">
+                            <img class="footer__img" src="./img/footer-inst5.svg">
                         </a>
                     </div>
                     <div class="footer__inst-wrapper">
                         <a class="footer__inst-img" href="#">
-                            <img src="./img/footer-inst6.svg">
+                            <img class="footer__img" src="./img/footer-inst6.svg">
                         </a>
                     </div>
                     <div class="footer__inst-wrapper">
                         <a class="footer__inst-img" href="#">
-                            <img src="./img/footer-inst7.svg">
+                            <img class="footer__img" src="./img/footer-inst7.svg">
                         </a>
                     </div>
                     <div class="footer__inst-wrapper">
                         <a class="footer__inst-img" href="#">
-                            <img src="./img/footer-inst8.svg">
+                            <img class="footer__img" src="./img/footer-inst8.svg">
                         </a>
                     </div>
                     <div class="footer__inst-wrapper">
                         <a class="footer__inst-img" href="#">
-                            <img src="./img/footer-inst9.svg">
+                            <img class="footer__img" src="./img/footer-inst9.svg">
                         </a>
                     </div>
                 </div>
