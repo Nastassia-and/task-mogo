@@ -148,7 +148,6 @@ $white-dark: #F5F5F5;
     max-height: 1024px;
     background: linear-gradient(rgba(233, 130, 131, 0.9), rgba(237, 215, 137, 0.9)), url(../../img/bg-eagle.jpg) center no-repeat;
     background-size: 100% 100%;
-    margin-bottom: 80px;
 }
 
 .header {
@@ -182,16 +181,16 @@ $white-dark: #F5F5F5;
         @include tablets() {
             display: none;
         }
-    }
 
-    &__nav {
-        width: 100%;
+        &-item {
+            margin-right: 50px;
 
-        &-container {
-            width: 55%;
+            &:last-child {
+                margin-right: 0;
+            }
         }
     }
-
+    
     &__nav-link {
         text-decoration: none;
         text-transform: uppercase;
@@ -291,12 +290,11 @@ $white-dark: #F5F5F5;
         }
     }
 
-    .intro-work-about {
-        /*потом удалить, для контента*/
-        margin: 268px auto 0;
-    }
+    
 }
-
+.first-slider {
+    margin-top: 270px;
+}
 .focus__rectangle {
     display: flex;
     position: absolute;
@@ -326,6 +324,7 @@ $white-dark: #F5F5F5;
 }
 
 .about {
+    padding: 80px 0;
     .line {
         margin-bottom: 40px;
 
@@ -435,8 +434,7 @@ $white-dark: #F5F5F5;
 .green-container {
     display: grid;
     grid-column-gap: 1px;
-    grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr 1fr;
-    margin-bottom: 50px;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr 1fr;   
 
     @include laptop() {
         margin-bottom: 30px;
@@ -495,6 +493,7 @@ $white-dark: #F5F5F5;
 }
 
 .work {
+    padding: 50px 0 100px 0;
     &__line {
         margin-bottom: 90px;
 
@@ -508,7 +507,6 @@ $white-dark: #F5F5F5;
         grid-template-columns: repeat(3, 1fr);
         grid-column-gap: 60px;
         grid-row-gap: 150px;
-        margin-bottom: 133px;
 
         @include laptop() {
             grid-column-gap: 40px;
@@ -601,7 +599,6 @@ $white-dark: #F5F5F5;
         max-width: 1170px;
         height: 582px;
         position: relative;
-        margin-bottom: 55px;
 
         @include laptop() {
             margin-bottom: 38px;
@@ -671,6 +668,8 @@ $white-dark: #F5F5F5;
 }
 
 .we-do {
+    padding: 50px 0 115px 0;
+
     &__line {
         margin-bottom: 60px;
 
@@ -692,7 +691,6 @@ $white-dark: #F5F5F5;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-bottom: 114px;
 
         @include laptop() {
             flex-direction: column;
@@ -731,20 +729,40 @@ $white-dark: #F5F5F5;
 }
 
 .my-slider-box {
-  display: flex;
-  flex-direction: row;
-  width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 40px auto;
 }
 
-.carousel-control-prev{
-    color: rgba(198, 203, 205, 1);
-}
-.carousel-control-next {
-    color: rgba(198, 203, 205, 1);
-}
 .slider-icon {
     width: 70px;
     height: 70px;
+
+    @include desktop() {
+        width: 50px;
+        height: 50px;
+    }
+
+    @include laptop() {
+        display: none;
+    }
+}
+
+.slider-text {
+    width: 770px;
+    @include font-raleway(24px, #A9AFB1, 500, 28px);
+    font-style: italic;
+
+    @include desktop() {
+        width: 650px;
+        @include size(18px, 21px);
+    }
+
+    @include laptop() {
+        width: 80%;
+        margin: auto;
+    }
 }
 
 .slider-icon-wrapper {
@@ -753,7 +771,17 @@ $white-dark: #F5F5F5;
     justify-content: center;
     width: 170px;
     height: 170px;
-    border: 2px solid #95E1D3;
+    border: 2px solid #95E1D3;    
+    margin-right: 30px;
+
+    @include desktop() {
+        width: 115px;
+        height: 115px;
+    }
+
+    @include laptop() {
+        display: none;
+    }
 }
 
 .we-do__img-wrapper {
@@ -763,7 +791,43 @@ $white-dark: #F5F5F5;
     border: 2px solid #95E1D3;
 }
 
+.slider-line {
+    width: 70px;
+    border-top: 4px solid #F38281;
+    margin-right: 55px;
+
+    @include desktop(){
+        width: 47px;
+        margin-right: 37px;
+    }
+
+    @include laptop(){
+        margin-left: 115px;
+    }
+}
+
+.slider-block-line {
+    display: flex;
+    align-items: center;
+}
+.slider-name{
+    @include font($kaushan-font, 30px, #000000, 400, 44px);
+
+    @include desktop() {
+        @include size(24px, 35px)
+    }
+}
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23A9AFB1' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e");
+}
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23A9AFB1' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+.slider-icon2 {
+    margin: 20px;
+}
 .team {
+    padding: 100px 0;
     &__line {
         margin-bottom: 50px;
     }
@@ -779,7 +843,6 @@ $white-dark: #F5F5F5;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-bottom: 85px;
 
         @include laptop() {
             flex-direction: column;
@@ -864,7 +927,6 @@ $white-dark: #F5F5F5;
 
 .black-white {
     background-color: $white-light;
-    margin-bottom: 85px;
 
     @include laptop() {
         margin-bottom: 55px;
@@ -947,7 +1009,7 @@ $white-dark: #F5F5F5;
 }
 
 .some {
-    margin-bottom: 125px;
+   padding-top: 100px;
 
     @include laptop() {
         margin-bottom: 85px;
@@ -981,6 +1043,7 @@ $white-dark: #F5F5F5;
     &__container {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
+        margin-bottom: 125px;
 
         @include tablets() {
             grid-template-columns: 1fr 1fr;
@@ -1165,7 +1228,6 @@ $white-dark: #F5F5F5;
         justify-content: space-between;
         flex-direction: row;
         flex-wrap: wrap;
-        margin-bottom: 95px;
 
         @include laptop() {
             margin-bottom: 58px;
@@ -1179,6 +1241,8 @@ $white-dark: #F5F5F5;
 }
 
 .latest {
+    padding-top: 100px;
+
     &__line {
         margin-bottom: 42px;
 
@@ -1547,6 +1611,10 @@ $white-dark: #F5F5F5;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 
     &__blog-img {
