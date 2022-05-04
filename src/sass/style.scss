@@ -266,7 +266,8 @@ $white-dark: #F5F5F5;
         background-color: transparent;
         @include font-raleway(24px, #FFFFFF, 700, 28px);
         text-transform: uppercase;
-        @include center;
+        margin-bottom: 150px;
+        margin-left: 38%; /* что-то никакими нормальными спопобами не получается выровнять кнопку по центру, может можно ее в див обернуть и флексами тогда */
 
         &:hover {
             background: #FFFFFF;
@@ -292,9 +293,7 @@ $white-dark: #F5F5F5;
 
     
 }
-.first-slider {
-    margin-top: 270px;
-}
+
 .focus__rectangle {
     display: flex;
     position: absolute;
@@ -1155,6 +1154,9 @@ $white-dark: #F5F5F5;
     }
 
     &__photo {
+        width: 130px;
+        height: 130px;
+
         @include laptop() {
             width: 88px;
             height: 88px;
